@@ -1,0 +1,84 @@
+<!-- =========================
+   SECTION TRANSPARENTE          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+
+
+
+<!-- =========================
+   FOOTER             
+============================== -->
+
+<footer>
+<div class="container">
+	
+	<!-- COMPANY ADDRESS-->
+	<div class="col-md-5 company-details">
+		<div class="icon-top red-text">
+		    <i class="icon-fontawesome-webfont-302"></i>
+		</div>
+		IDEFI-CréaTIC, Université Paris 8 <br/>
+		2 rue de la Liberté 93526 Saint-Denis France
+	</div>
+	
+	<!-- COMPANY EMAIL-->
+	<div class="col-md-2 company-details">
+		<div class="icon-top green-text">
+		<i class="icon-fontawesome-webfont-329"></i>
+		</div>
+		 contact@idefi-creatic.net
+	</div>
+	
+	<!-- COMPANY PHONE NUMBER -->
+	<div class="col-md-2 company-details">
+		<div class="icon-top blue-text">
+		<i class="icon-fontawesome-webfont-101"></i>
+		</div>
+		+033 01 49 40 67 98
+	</div>
+	
+	<!-- COPYRIGHT -->
+	<div class="col-md-2 company-details">
+		<div class="icon-top white-text">
+		<i class="icon-creative-commons"></i>
+		</div>
+		 2016 SamSzo<br/>
+		 ©2013 Zerif LLC
+	</div>
+</div> <!-- / END CONTAINER -->
+</footer> <!-- / END FOOOTER  -->
+
+<!-- SCRIPTS -->
+<script src="#CHEMIN{js/bootstrap.min.js}"></script>
+<script src="#CHEMIN{js/wow.min.js}"></script>
+<script src="#CHEMIN{js/jquery.nav.js}"></script>
+<script src="#CHEMIN{js/jquery.knob.js}"></script>
+<script src="#CHEMIN{js/owl.carousel.min.js}"></script>
+<script src="#CHEMIN{js/smoothscroll.js}"></script>
+<script src="#CHEMIN{js/jquery.vegas.min.js}"></script>
+<script src="#CHEMIN{js/zerif.js}"></script>
+<script type="text/javascript">
+/* ================================
+===  BACKGROUND SLIDER        ====
+================================= */
+      <BOUCLE_artDiapo(ARTICLES) {id_article=43}>
+$.vegas('slideshow', {
+  [delay:(#DESCRIPTIF|textebrut)],
+  backgrounds:[
+      <BOUCLE_docDiapo(DOCUMENTS) {id_article}{par hasard}>  
+    { src:'#URL_DOCUMENT', [fade:(#CHAPO|textebrut)]},
+      </BOUCLE_docDiapo>
+  ]
+});
+      </BOUCLE_artDiapo>
+
+</script>
+
+</body>
+</html>

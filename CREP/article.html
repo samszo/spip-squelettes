@@ -1,0 +1,142 @@
+<INCLURE{fond=inclure/tete}>
+<INCLURE{fond=inclure/menu}>
+
+<BOUCLE_ArtProj(ARTICLES) {id_article}>
+
+<!-- =========================
+   SECTION TRANSPARENTE          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+<section class="focus" >
+
+<div class="container">
+	
+      #FIL_ARIANE
+      
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+	      <div class="row">
+	      #DESCRIPTIF
+	      </div>
+	      <div class="row">
+		<!-- SECTION TITLE -->
+		<h2 class="creatic-text">#TITRE</h2>
+		
+	      </div>
+	</div>
+	<!-- / END SECTION HEADER -->
+	
+	<!-- HOMEPAGE PORTFOLIO SECTION WILL LOAD CONTENTS FROM HERE -->
+	<div >
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				[(#LOGO_ARTICLE|image_reduire{300,300}|inserer_attribut{alt,#TITRE})]
+				<div class="project-information">
+					<ul>
+						<BOUCLES_roles3(AUTEURS){id_article}>
+					      <li><span class="dark-text">[(#ROLE|role{auteur})] : </span>#NOM</li>
+						 </BOUCLES_roles3>
+					</ul>
+				</div>
+				<div class="project-information">
+					<B_documents_portfolio>
+					<div class="bloc clearfix documents_portfolio" id="documents_portfolio">
+						<ul>
+							<BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{doublons}{vu=non}>[
+							<li><a href="(#URL_DOCUMENT)" type="#MIME_TYPE" onclick="" [ class="(#EXPOSER)"][ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER
+								|image_passe_partout{90,90}
+								|image_recadre{90,90}
+								|inserer_attribut{class,spip_logo}
+								|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a></li>
+							]</BOUCLE_documents_portfolio>
+						</ul>
+					</div><!--#documents_portfolio-->
+					</B_documents_portfolio>    
+				</div>				
+				<div class="project-description" style="text-align: justify;">
+					#TEXTE	 
+				</div>
+				
+				
+			      <div class="project-description">
+					      #CHAPO
+			      </div>
+				
+				
+			</div>
+		</div>
+		
+	</div>
+	<!-- END OF SINGLE PROJECT -->
+	
+	
+
+	<!-- SECTION COMMENTAIRE -->
+	<h3 class="creatic-text">Vos commentaires</h3>
+	
+	<!-- / END SECTION HEADER -->
+	
+	<!-- CONTACT FORM-->
+	<div class="row">
+	
+		<!-- COLONNE POUR AJOUTER UN COMMENTAIRE -->
+		<div class="col-lg-4 col-sm-4">
+		<h4 class="creatic-text">Ajoutez...</h4>
+		
+			#FORMULAIRE_FORUM 
+		</div>
+	
+		<!-- COLONNE POUR AFFICHER LES COMMENTAIRES -->
+		<div class="col-lg-8 col-sm-8" >
+		<h4 class="creatic-text">Consultez...</h4>
+
+	<!-- CLIENT FEEDBACKS -->
+	
+	
+	<div class="row wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+		
+		
+	    <div id="client-feedbacks" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+	<BOUCLEforum(FORUMS){id_article}>
+	<div class="owl-item" style="width: 380px;"><div class="feedback-box">
+		
+	      <div class="message">
+	      <h5 class="creatic-text">#TITRE</h5>
+	      #TEXTE
+	      </div>
+		      
+	      <div class="client">
+	      
+		    <div class="client-info">
+			  <a class="client-name" href="#URL_ARTICLE">#NOM</a>		
+			  <div class="client-company">
+			  [(#DATE|saison)] [(#DATE|annee)]
+			  </div>
+		    </div>
+		    <div class="client-image hidden-xs">
+			  #LOGO_AUTEUR
+		    </div>
+		</div>
+	</div></div>
+	</BOUCLEforum>
+			    
+	    </div> <!-- / END SINGLE FEEDBACK BOX-->
+				
+	</div> <!-- / END ROW -->			
+			
+			
+			
+		</div>
+	</div>
+	<!-- / END CONTACT FORM-->
+</div> <!-- / END CONTAINER -->
+</section>
+</BOUCLE_ArtProj>
+
+<INCLURE{fond=inclure/pied}>

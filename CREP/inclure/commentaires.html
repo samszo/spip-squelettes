@@ -1,0 +1,36 @@
+	<!-- CLIENT FEEDBACKS -->
+	<div class="row wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;">
+		
+		
+	    <div id="client-feedbacks" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+	    
+	<BOUCLEart(ARTICLES){id_rubrique}>
+	<div class="owl-item" style="width: 380px;"><div class="feedback-box">
+		
+	      <div class="message">
+	      #INTRODUCTION{350}
+	      </div>
+		      
+	      <div class="client">
+		    <div class="quote red-text">
+		    <i class="icon-fontawesome-webfont-294"></i>
+		    </div>
+	      
+		    <div class="client-info">
+			  <a class="client-name" href="#URL_ARTICLE">#TITRE</a>		
+			  <div class="client-company">
+			  <BOUCLEaut(AUTEURS){id_article}{","}>#NOM</BOUCLEaut>
+			  </div>
+		    </div>
+		    <div class="client-image hidden-xs">
+			  <BOUCLEdoc(DOCUMENTS){id_article}{extension==jpg|png|gif}{0,1}>
+			  (#FICHIER|image_reduire{70})
+			    </BOUCLEdoc>
+		    </div>
+		</div>
+	</div></div>
+	</BOUCLEart>
+			    
+	    </div> <!-- / END SINGLE FEEDBACK BOX-->
+				
+	</div> <!-- / END ROW -->

@@ -1,0 +1,63 @@
+<INCLURE{fond=inclure/tete}>
+<INCLURE{fond=inclure/menu}>
+
+<BOUCLErub(RUBRIQUES){id_rubrique}>
+
+<!-- =========================
+   SECTION TRANSPARENTE          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+<section class="focus" >
+<div class="container">
+      #FIL_ARIANE
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+	      <div class="row">
+	      #DESCRIPTIF
+	      </div>
+	      <div class="row">
+		<!-- SECTION TITLE -->
+		<h2 class="creatic-text">#TITRE</h2>
+		
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h3>
+			#TEXTE
+		</h3>
+	      </div>
+	</div>
+	<!-- / END SECTION HEADER -->
+	
+        <!-- 4 FOCUS BOXES -->
+	<div class="row">
+		
+		<!-- FIRST FOCUS BOXES -->
+		<BOUCLE_tradArt1(ARTICLES) {id_rubrique}{par num titre}>        
+		
+		<div class="col-lg-3 col-sm-3 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<a href="#URL_ARTICLE"><div class="service-icon">
+				<BOUCLE_tradArt1MC(MOTS) {id_article}{id_groupe=1}><i class="pixeden pd-icon-#TITRE"></i></BOUCLE_tradArt1MC>
+				 <!-- FOCUS ICON-->
+			</div></a>
+			<h5 class="red-border-bottom">#TITRE</h5> <!-- FOCUS HEADING -->
+			<div class="txtJusti"> <!-- FOCUS DESCRIPTION -->
+				 #INTRODUCTION{350}
+			      <a href="#URL_ARTICLE">&nbsp;la suite...&nbsp;</a>
+			</div>
+		</div>
+		</BOUCLE_tradArt1>
+		<!-- / END FIRST FOCUS BOX. Other boxes has same format -->
+	</div>
+	<!-- / END 4 FOCUS BOXES -->
+	
+</div> <!-- / END CONTAINER -->
+</section>
+</BOUCLErub>
+
+<INCLURE{fond=inclure/pied}>

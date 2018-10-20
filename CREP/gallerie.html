@@ -1,0 +1,132 @@
+<!doctype html>
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js">
+<head>
+  	<meta charset="utf-8">  	
+    <meta name="keywords" content="créativité, reconstruction, proverbes, Université Paris 8, CreaTIC, Ressource Pédagogique Numérique">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Samuel Szoniecky">
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#SLOGAN_SITE_SPIP|textebrut)] - gallerie</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+		<link rel="stylesheet" href="#CHEMIN{/dist/css/material-photo-gallery.css}">
+		<link rel="stylesheet" href="#CHEMIN{css/styles.css}">
+		
+	<!-- =========================
+	     STYLESHEETS      
+	============================== -->
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.theme.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.carousel.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/jquery.vegas.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/animate.min.css}">
+	
+	<link rel="stylesheet" href="#CHEMIN{assets/icon-fonts/styles.css}"> 
+	<link rel="stylesheet" href="#CHEMIN{css/pixeden-icons.css}"> 
+	
+	<!-- CUSTOM STYLES -->
+	<link rel="stylesheet" href="#CHEMIN{css/styles.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/responsive.css}">
+		
+		<script src="#CHEMIN{js/jquery.min.js}"></script>
+
+		<style>
+			/* DEMO */
+			body {
+				background: #fefefe;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				text-align: center;
+				font-family: 'Roboto Mono';
+			}
+
+			.demo-btn {
+				display: inline-block;
+				margin: 0 2.5px 4vh 2.5px;
+				text-decoration: none;
+				color: grey;
+				padding: 15px;
+				line-height: 1;
+				min-width: 140px;
+				background: rgba(0,0,0, 0.07);
+				border-radius: 6px;
+			}
+
+			.demo-btn:hover {
+				background: rgba(0,0,0,0.12);
+			}
+
+			@media (max-width: 640px) {
+
+				.demo-btn {
+					min-width: 0;
+					font-size: 14px;
+				}
+			}
+		</style>
+		<INCLURE{fond=inclure/head} />
+		
+	</head>
+	<body>
+<header id="home" style="min-height: 70px;">
+	
+	<!-- TOP BAR -->
+	<div  class="navbar navbar-inverse bs-docs-nav" role="banner">
+		<div class="container">
+			<div class="navbar-header responsive-logo">
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+				<span class="sr-only">Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand">
+					#LOGO_SITE_SPIP
+				</div>
+				<h1 >[(#NOM_SITE_SPIP|textebrut)]</h1>
+				<h2 >[(#SLOGAN_SITE_SPIP|textebrut)]</h2>				
+			</div>
+		        [(#SESSION{id_auteur}|non) | <a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>]
+		        [(#AUTORISER{ecrire})| <a href="#EVAL{_DIR_RESTREINT_ABS}"><:espace_prive:></a>]
+				[(#SESSION{id_auteur}|oui) | <a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a>]
+		</div>
+	</div>
+	<!-- / END TOP BAR -->
+	
+</header> <!-- / END HOME SECTION  -->	
+<div class="container">
+	
+	<!-- HOMEPAGE PORTFOLIO SECTION WILL LOAD CONTENTS FROM HERE -->
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="row">
+		<BOUCLE_ArtGal(ARTICLES){id_article}>
+		<h4>
+		#FIL_ARIANE
+		</h4>
+		<div class="m-p-g">
+			<div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
+				<BOUCLE_documents_gal(DOCUMENTS) {id_article}>
+				<img src="#URL_DOCUMENT" data-full="#URL_DOCUMENT" class="m-p-g__thumbs-img" />
+				</BOUCLE_documents_gal>
+			</div>
+
+			<div class="m-p-g__fullscreen"></div>
+		</div>
+		</BOUCLE_ArtGal>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<script src="#CHEMIN{/dist/js/material-photo-gallery.js}"></script>
+		<script>
+			var elem = document.querySelector('.m-p-g');
+
+			document.addEventListener('DOMContentLoaded', function() {
+				var gallery = new MaterialPhotoGallery(elem);
+			});
+		</script>
+	</body>
+</html>

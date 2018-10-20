@@ -1,0 +1,98 @@
+<BOUCLE_aut(AUTEURS) {email} {tout}>						
+
+<!doctype html>
+<html lang="#LANG">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="#DESCRIPTION" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscriptions #NOM</title>
+
+<!-- =========================
+ FAV AND TOUCH ICONS  
+============================== -->
+<link rel="shortcut icon" href="#CHEMIN{images/icons/favicon.ico}">
+<link rel="apple-touch-icon" href="#CHEMIN{images/icons/apple-touch-icon.png}">
+<link rel="apple-touch-icon" sizes="72x72" href="#CHEMIN{images/icons/apple-touch-icon-72x72.png}">
+<link rel="apple-touch-icon" sizes="114x114" href="#CHEMIN{images/icons/apple-touch-icon-114x114.png}">
+
+	<!-- =========================
+	     STYLESHEETS      
+	============================== -->
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.theme.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.carousel.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/jquery.vegas.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/animate.min.css}">
+	
+	<link rel="stylesheet" href="#CHEMIN{assets/icon-fonts/styles.css}"> 
+	<link rel="stylesheet" href="#CHEMIN{css/pixeden-icons.css}"> 
+	
+	<!-- CUSTOM STYLES -->
+	<link rel="stylesheet" href="#CHEMIN{css/styles.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/responsive.css}">
+	
+	<!-- WEBFONT -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+	
+	<!--[if lt IE 9]>
+				<script src="#CHEMIN{js/html5shiv.js}"></script>
+				<script src="#CHEMIN{js/respond.min.js}"></script>
+			<![endif]-->
+	<!-- JQUERY -->
+	<INCLURE{fond=inclure/head} />
+	
+</head>
+<body  style="text-align: justify;">
+<header id="home" style="min-height: 70px;">
+	
+	<!-- TOP BAR -->
+	<div  class="navbar navbar-inverse bs-docs-nav" role="banner">
+		<div class="container">
+			<div class="navbar-header responsive-logo">
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+				<span class="sr-only">Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand">
+					#LOGO_SITE_SPIP
+				</div>
+				<h1 >[(#NOM_SITE_SPIP|textebrut)]</h1>
+				<h2 >[(#SLOGAN_SITE_SPIP|textebrut)]</h2>				
+			</div>
+		        [(#SESSION{id_auteur}|non) | <a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>]
+		        [(#AUTORISER{ecrire})| <a href="#EVAL{_DIR_RESTREINT_ABS}"><:espace_prive:></a>]
+				[(#SESSION{id_auteur}|oui) | <a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a>]
+		</div>
+	</div>
+	<!-- / END TOP BAR -->
+	
+</header> <!-- / END HOME SECTION  -->
+
+<div class="container">
+	
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="row">
+				<h2>Bonjour #NOM</h2>
+				<p>Merci beaucoup pour votre intérêt pour les ateliers CREP</p>														        
+				<p>Voici le détail de vos inscriptions</p>
+				<ul >
+				   <BOUCLE_restreint(RUBRIQUES) {id_auteur} {tout}>
+					<BOUCLE_parent(RUBRIQUES) {id_rubrique=#ID_PARENT}{tout} {doublons}>
+					    <h3>#TITRE</h3>
+					</BOUCLE_parent>
+				   <li>
+					 <h4>#TITRE</h4>
+				   </li>
+				   </BOUCLE_restreint>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+</BOUCLE_aut>
