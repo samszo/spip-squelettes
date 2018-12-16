@@ -1,0 +1,20 @@
+#CACHE{0}#HTTP_HEADER{Content-Type: text/xml; charset=utf-8}<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+[(#REM) Accueil]
+<url>
+        <loc>#URL_SITE_SPIP/</loc>
+        <changefreq>hourly</changefreq>
+</url>
+
+[(#REM) Rubriques ]
+<BOUCLE_r(RUBRIQUES){!par date}{0,1000}>[
+<url><loc>(#URL_RUBRIQUE|url_absolue)</loc></url>]</BOUCLE_r>
+
+[(#REM) Articles ]
+[(#SET{recent,[(#VAL{Y-m-d H:i:s}|date{#VAL{"-1 day"}|strtotime})]})]
+<BOUCLE_a(ARTICLES){!par date_modif}{!par date}{0,2000}>[
+<url><loc>(#URL_ARTICLE|url_absolue)</loc>[(#DATE_MODIF**|>{#GET{recent}}
+|?{[<lastmod>(#DATE_MODIF**|date_iso)</lastmod>]})]</url>]</BOUCLE_a>
+
+</urlset>

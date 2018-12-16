@@ -1,0 +1,173 @@
+<INCLURE{fond=inc/tete}>
+
+<INCLURE{fond=inc/header}>
+
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-9 col-md-12">
+							<h6></h6>
+							<h1 class="text-white">
+								[(#NOM_SITE_SPIP|textebrut)]			
+							</h1>
+							<h6>[(#SLOGAN_SITE_SPIP|textebrut)]</h6>
+							<BOUCLErubSemi(RUBRIQUES){id_rubrique=2}>
+							<h2>#TITRE</h2>
+							<h4><span class="lnr lnr-calendar-full"></span>#DESCRIPTIF</h4>
+							<h4><span class="lnr lnr-map"></span>#TEXTE</h4>
+							<div class="countdown">
+								<div id="timer" class="text-white"></div>
+							</div>
+							</BOUCLErubSemi>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->				
+
+			<BOUCLEArtPres(ARTICLES){id_article=11}>
+			<section id="presentation" class="about-generic-area section-gap">
+				<div class="container border-top-generic">
+					<h3 class="about-title mb-30">#TITRE</h3>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="img-text">
+								#TEXTE
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			</BOUCLEArtPres>
+
+			<!-- Start spekers Area -->
+			<BOUCLErubSpeak(RUBRIQUES){id_rubrique=4}>
+			<section class="spekers-area pb-100" id="speakers">
+				<div class="container-fluid">
+
+
+							<div class="row d-flex justify-content-center">
+								<div class="menu-content pb-70 col-lg-8">
+									<div class="title text-center">
+										<h1 class="mb-10">#TITRE</h1>
+										<p>#DESCRIPTIF</p>
+									</div>
+								</div>
+							</div>						
+		
+					<div class="row no-padding">
+						<div class="active-speaker-carusel col-lg-12 no-padding">
+
+								
+							<BOUCLEArtSpeak(ARTICLES){id_rubrique}{par num titre}>
+							
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+												<img src="http://www.samszo.univ-paris8.fr/ChaoticumPapillonae/CreaPapiDynaAnim.php?anim=0&larg=390&haut=360&id=svgPapiLogo#ID_ARTICLE"  alt="img">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase">Intervenant #COMPTEUR_BOUCLE</h6>
+											<h1 class="text-white">#TITRE</h1>
+											#TEXTE
+										</div>
+									</div>
+								</div>								
+							</div>
+							</BOUCLEArtSpeak>
+							<!--
+							<div class="single-speaker item">
+								<div class="container">
+									<div class="row align-items-center">
+										<div class="col-md-6 speaker-img no-padding">
+											<img src="#CHEMIN{img/s2.jpg}" alt="">
+										</div>
+										<div class="col-md-6 speaker-info no-padding">
+											<h6 class="text-uppercase">speaker 02</h6>
+											<h1 class="text-white">Elizabeth Stokes</h1>
+											<p>
+												Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances.
+											</p>
+											<p><span class="lnr lnr-phone-handset"></span>+880 (012) 8954 253</p>
+											<p><span class="lnr lnr-location"></span>iamspeaker@gmail.com</p>
+											<ul>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-dribbble"></i></a>
+												<a href="#"><i class="fa fa-behance"></i></a>
+											</ul>
+										</div>
+									</div>
+								</div>								
+							</div>	
+							-->
+																											
+						</div>
+					</div>
+				</div>	
+			</section>
+			</BOUCLErubSpeak>		
+			<!-- End spekers Area -->
+			
+
+			<!-- Start schedule Area -->
+			<BOUCLErubPlan(ARTICLES){id_article=2}>
+			<section class="schedule-area pb-100" id="schedule">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">#TITRE</h1>
+								#TEXTE
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="table-wrap col-lg-12">
+							<table class="schdule-table table table-bordered">
+								  <thead class="thead-light">
+								    <tr>
+								      <th class="head" scope="col">n°</th>
+								      <th class="head" scope="col">titre</th>
+								      <th class="head" scope="col">intervenant</th>
+								      <th class="head" scope="col">lieu</th>
+								      <th class="head" scope="col">horaire</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+									<BOUCLE_agenda(EVENEMENTS){age<0}{par date}{statut=publie}>
+								    <tr>
+								      <th class="name" scope="row">#COMPTEUR_BOUCLE</th>
+								      <td>#DESCRIPTIF</td>				      
+								      <td>#TITRE</td>				      
+								      <td>#LIEU</td>				      
+								      <td>[(#DATE_DEBUT|affdate{"H:i"})] - [(#DATE_FIN|affdate{"H:i"})]</td>					      
+								    </tr>
+									</BOUCLE_agenda>
+									<!--
+								    <tr>
+								      <th class="name" scope="row">02</th>
+								      <td>Breakfast and rest</td>				      
+								      <td>N/A</td>				      
+								      <td>4th Hall Room</td>				      
+								      <td>02.00</td>						      
+									</tr>
+									-->										    
+								  </tbody>
+							</table>							
+						</div>
+					</div>
+				</div>	
+			</section>
+			</BOUCLErubPlan>
+			<!-- End schedule Area -->		
+
+			
+					
+<INCLURE{fond=inc/footer}>
+
+<INCLURE{fond=inc/pied}>

@@ -1,0 +1,41 @@
+<BOUCLE_secteur(HIERARCHIE){tout}{id_rubrique}{racine}{0,1}>
+                  <!-- start single sidebar -->
+                  <div class="mu-single-sidebar">
+<B_rubriques>
+                    <h3>#TITRE</h3>
+                    <ul class="mu-sidebar-catg">
+	<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
+		<li>
+			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a>
+
+			<B_sous_art>
+			<ul>
+				<BOUCLE_sous_art(ARTICLES) {id_rubrique} {par num titre}>				<li><a href="#URL_ARTICLE" class="mnuArtProf#PROFONDEUR" > #TITRE</a></li>
+				</BOUCLE_sous_art>
+			</ul>
+			</B_sous_art>
+
+			<B_sous_rubriques>
+			<ul>
+				<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre}{!par date}><BOUCLE_test_expose(RUBRIQUES) {id_enfant}>#EXPOSE{' '}</BOUCLE_test_expose>
+				<li><a href="#URL_RUBRIQUE" class="#EXPOSE mnuProf#PROFONDEUR " > #TITRE</a><BOUCLE_re(BOUCLE_sous_rubriques)></BOUCLE_re>	
+
+			<B_sousRub_art>
+			<ul>
+				<BOUCLE_sousRub_art(ARTICLES) {id_rubrique} {par num titre}>				<li><a href="#URL_ARTICLE" class="mnuArtProf#PROFONDEUR" > #TITRE</a></li>
+				</BOUCLE_sousRub_art>
+			</ul>
+			</B_sousRub_art>
+
+
+                                </li>
+				</B_test_expose></BOUCLE_sous_rubriques>
+			</ul>
+			</B_sous_rubriques>
+		</li>
+	</BOUCLE_rubriques>
+                    </ul>
+</B_rubriques>
+                  </div>
+                  <!-- end single sidebar -->
+</BOUCLE_secteur>

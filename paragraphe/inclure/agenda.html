@@ -1,0 +1,21 @@
+<B_agenda>
+<section>
+      <header class="major">
+	      <h2><:agenda:></h2>
+      </header>
+      <div class="features">
+<BOUCLE_agenda(EVENEMENTS){age<0}{par date}
+{statut=publie}>
+	      <article>
+		      <span class="icon fa-calendar"></span>
+		      <div class="content">
+      <h3>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</h2>			      
+			      <p>#TITRE</p>
+			    <p>#DESCRIPTIF"</p>
+		      </div>
+	      </article>
+</BOUCLE_agenda>
+      </div>
+</section>
+</B_agenda>
+

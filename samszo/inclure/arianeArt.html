@@ -1,0 +1,19 @@
+<!-- Page breadcrumb -->
+ <section id="mu-page-breadcrumb">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="mu-page-breadcrumb-area">
+           <h2>#TITRE</h2>
+           <ol class="breadcrumb">
+            <li><a href="#URL_SITE_SPIP/"><:accueil_site:></a></li>
+            <BOUCLE_ariane(HIERARCHIE){id_article}>
+               <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a>
+             </BOUCLE_ariane>
+            [<li class="active">(#TITRE|couper{80})</li>]
+          </ol>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>

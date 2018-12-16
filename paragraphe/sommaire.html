@@ -1,0 +1,32 @@
+<INCLURE{fond=inclure/tete}>
+<BOUCLE_intro(RUBRIQUES){racine}{lang=#LANG}>
+
+	<!-- Banner -->
+		<section id="banner">
+			<div class="content">
+				<header>
+				<BOUCLE_article(ARTICLES){id_rubrique}{0,1}>
+				<h2>#TITRE</h2> 									</header>	
+				 
+				 #TEXTE
+				 </BOUCLE_article>   
+				     
+				
+				</header>
+				
+			
+				<ul class="actions">
+					
+				</ul>
+			</div>
+			
+		      </span>
+	    </section>
+</BOUCLE_intro>
+	    
+	<!-- Sidebar -->
+	<INCLURE{fond=inclure/side}>
+
+
+	<INCLURE{fond=inclure/pied}>
+	

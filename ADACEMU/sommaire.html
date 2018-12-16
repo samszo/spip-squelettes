@@ -1,0 +1,57 @@
+<INCLURE{fond=inclure/tete}>
+<BOUCLE_intro(RUBRIQUES){racine}{lang=#LANG}>
+
+
+<section>
+      <header class="major">
+	      <h2>AGENDA</h2>
+      </header>
+      <div class="features">
+	    <BOUCLE_plan(RUBRIQUES){id_parent}{0,1}>
+	      <BOUCLE_planDetail(RUBRIQUES){id_parent}{par num titre}>
+	      <article>
+		      <span class="icon fa-calendar"></span>
+		      <div class="content">
+<BOUCLE_agenda(EVENEMENTS){id_rubrique}{par date}{statut=publie}>
+      <h3>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</h2>
+</BOUCLE_agenda>
+			      
+			      <p>#TITRE</p>
+			    <p><a href="#URL_RUBRIQUE">détails...</a></p>
+		      </div>
+	      </article>
+	      </BOUCLE_planDetail>
+	    </BOUCLE_plan>
+
+      </div>
+</section>
+
+	<!-- Banner -->
+		<section id="banner">
+			<div class="content">
+				<header>
+				<BOUCLE_article(ARTICLES){id_rubrique}{0,1}>
+				<h2>#TITRE</h2> 									</header>	
+				 
+				 #TEXTE
+				 </BOUCLE_article>   
+				     
+				
+				</header>
+				
+			
+				<ul class="actions">
+					
+				</ul>
+			</div>
+			
+		      </span>
+	    </section>
+</BOUCLE_intro>
+	    
+	<!-- Sidebar -->
+	<INCLURE{fond=inclure/side}>
+
+
+	<INCLURE{fond=inclure/pied}>
+	

@@ -1,0 +1,97 @@
+<INCLURE{fond=inclure/tete}>
+
+<BOUCLErub(RUBRIQUES){id_rubrique}>
+
+<section>
+      <header class="main">
+	    <h1>#TITRE</h1>
+            <h2>#DESCRIPTIF</h2>
+
+      </header>
+
+<BOUCLE_agenda(EVENEMENTS){id_rubrique}{par date}{statut=publie}>
+      <div class="row">
+	  <div class="6u 12u$(medium)">
+	    <h2>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</h2>
+	    <h3>#LIEU</h3>
+	    <div>#DESCRIPTIF</div>
+	  </div>
+	  <div class="6u 12u$(medium)">
+	    #FORMULAIRE_PARTICIPER_EVENEMENT{#ID_EVENEMENT}
+	    [(#SESSION{id_auteur}|non) <a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>]
+
+	    [(#SESSION{id_auteur}|non) #FORMULAIRE_INSCRIPTION{6forum}]
+	  </div>
+      </div>	            
+</BOUCLE_agenda>
+            
+<div >
+      
+      <header class="header">
+	    <h2>Participants</h2>
+      </header>
+	      
+      <div class="row">
+	  <div class="4u 12u$(medium)">
+	      <h4>#CHAMP_EXTRA{auteurs_2,label} :</h4>	      
+	      <BOUCLEautPre(AUTEURS){id_auteur IN (#AUTEURS_2|explode{','})}{tous}{par nom}>
+		    <h5>#NOM</h5>
+	      </BOUCLEautPre>
+	  </div>
+	  <div class="4u 12u$(medium)">
+	      <h4>#CHAMP_EXTRA{auteurs_1,label} :</h4>	      
+	      <BOUCLEautPrev(AUTEURS){id_auteur IN (#AUTEURS_1|explode{','})}{tous}{par nom}>
+		    <h5>#NOM</h5>
+	      </BOUCLEautPrev>
+	  </div>
+	  <div class="4u$ 12u$(medium)">
+	      <h4>#CHAMP_EXTRA{auteurs_3,label} :</h4>
+	      <BOUCLE_evenement(EVENEMENTS){id_rubrique}>
+		  <BOUCLE_personnes_inscrites(spip_auteurs spip_evenements_participants){id_evenement}{par nom}> 
+		  #NOM 
+		  </BOUCLE_personnes_inscrites>
+	      </BOUCLE_evenement>
+	      
+	      
+	      
+	      
+	      <BOUCLEautIns(AUTEURS){id_auteur IN (#AUTEURS_3|explode{','})}{tous}{par nom}>
+		    <h5>#NOM</h5>
+	      </BOUCLEautIns>
+	  </div>
+	</div>	
+      </div>	            
+	
+	
+      <div class="row">
+	    #TEXTE      
+      </div>	            
+  	      
+<div >
+      
+      <header class="header">
+	    <h2>Programme</h2>
+      </header>
+      <BOUCLEart(ARTICLES){id_rubrique}{par num titre}>
+      
+	<div class="row">
+	    <h3> #TITRE </h3>
+	</div>
+	<div class="row">
+	    <h4>#LESAUTEURS</h4>
+	
+	    <p>[(#TEXTE|couper{200})]</p>
+	    <p><a href="#URL_ARTICLE">Lire la suite...</a></p>
+	</div>
+      </BOUCLEart>
+  </div>	      
+
+</BOUCLErub>
+</section>
+
+
+<INCLURE{fond=inclure/side}>
+
+
+
+<INCLURE{fond=inclure/pied}>

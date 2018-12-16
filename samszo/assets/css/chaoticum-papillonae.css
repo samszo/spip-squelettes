@@ -1,0 +1,8 @@
+.ChaoticumPapillonae {
+    height: 140px;
+    width: 140px;
+}
+#ChaoticumPapillonae {
+    background: url(../../../ChaoticumPapillonae/CreaPapiDynaAnim.php?anim=0&larg=200&haut=200&id=svgPapiLogo);
+    background-size: cover;
+}

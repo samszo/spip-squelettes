@@ -1,0 +1,166 @@
+<BOUCLE_principale(RUBRIQUES){id_rubrique}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+[(#REM) Cf.:
+http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+]<!--[if lt IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml"
+	xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js">
+<!--<![endif]-->
+<head>
+<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
+<title>[(#TITRE|couper{80}|textebrut) -
+	][(#NOM_SITE_SPIP|textebrut)]</title> [
+<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />
+] [
+<link rel="canonical" href="(#URL_RUBRIQUE|url_absolue)" />
+]
+<INCLURE {fond=inclure/tete} />
+</head>
+
+<body>
+	<INCLURE {fond=inclure/barrehaut} />
+	<INCLURE {fond=inclure/menu,env} />
+	<INCLURE {fond=inclure/recherche} />
+	<!-- Page breadcrumb -->
+	<section id="mu-page-breadcrumb">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mu-page-breadcrumb-area">
+						<h2>#TITRE</h2>
+						<ol class="breadcrumb">
+							<li><a href="#URL_SITE_SPIP/"><:accueil_site:></a></li>
+							<BOUCLE_ariane(HIERARCHIE){id_rubrique}>
+							<li><a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></li>
+							</BOUCLE_ariane> [
+							<li class="active">(#TITRE|couper{80})</li>
+							] 
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="mu-course-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mu-course-content-area">
+						<div class="row">
+							<div class="col-md-9">
+
+								<div class="mu-course-container mu-blog-archive">
+									<div class="row">
+
+										<!-- start title -->
+										<div class="mu-title">
+											<h2>#TITRE</h2>
+											#TEXTE
+										</div>
+										<!-- end title -->
+
+										<!-- start ARTICLE -->
+										<B_art>
+										<div class="mu-title">
+											<h3>
+												<:articles_rubrique:>
+											</h3>
+										</div>
+
+										<BOUCLE_art(ARTICLES){id_rubrique}{par num titre} {!par date}>
+										<div class="col-md-6 col-sm-6">
+											<article class="mu-blog-single-item">
+												<figure class="mu-blog-single-img">
+													<a href="#URL_ARTICLE"> <img style="width: 20%;"
+														src="../../ChaoticumPapillonae/CreaPapiDynaAnim.php?anim=0&larg=50&haut=50&id=svgPapiLogo#ID_ARTICLE" />
+													</a>
+													<figcaption class="mu-blog-caption">
+														<h3>
+															<a href="#URL_ARTICLE">[(#TITRE|couper{60})]</a>
+														</h3>
+													</figcaption>
+												</figure>
+												<div class="mu-blog-meta">
+													#LESAUTEURS<br /> <span>&nbsp;</span><span><i
+														class="fa fa-clock-o"></i>[(#DATE|affdate)]</span> <span>&nbsp;</span><span><i
+														class="fa fa-star"></i>#POPULARITE </span>
+												</div>
+												<div class="mu-blog-description">
+													<a class="mu-read-more-btn" href="#URL_ARTICLE"><:voir_en_ligne:></a>
+												</div>
+											</article>
+										</div>
+
+										</BOUCLE_art></B_art>
+										<!-- end ARTICLE -->
+										<!-- start SOUS - RUBRIQUE -->
+										<B_sousRub>
+
+										<div class="mu-title">
+											<h3>
+												<:sous_rubriques:>
+											</h3>
+										</div>
+
+										<BOUCLE_sousRub(RUBRIQUES){id_parent}>
+
+
+										<!-- calculer la popularité d'une rubrique --> #SET{poprub, 0}
+										<BOUCLE_remplirtableau(ARTICLES){id_rubrique}{par popularite}{0,20}>
+										#SET{poprub, #GET{poprub}|plus{#POPULARITE}} </BOUCLE_remplirtableau>
+
+										<div class="col-md-6 col-sm-6">
+											<article class="mu-blog-single-item">
+												<figure class="mu-blog-single-img">
+													<a href="#URL_RUBRIQUE"> <img style="width: 20%;"
+														src="../../ChaoticumPapillonae/CreaPapiDynaAnim.php?anim=0&larg=50&haut=50&id=svgPapiLogo#ID_RUBRIQUE" />
+													</a>
+													<figcaption class="mu-blog-caption">
+														<h3>
+															<a href="#URL_RUBRIQUE">#TITRE</a>
+														</h3>
+													</figcaption>
+												</figure>
+												<div class="mu-blog-meta">
+													<span><i class="fa fa-clock-o"></i>[(#DATE|affdate)]</span>
+													<span>&nbsp;</span><span><i class="fa fa-star"></i>#GET{poprub}</span>
+												</div>
+												<div class="mu-blog-description">
+													#TEXTE <a class="mu-read-more-btn" href="#URL_RUBRIQUE"><:voir_en_ligne:></a>
+												</div>
+											</article>
+										</div>
+
+										</BOUCLE_sousRub> <B_sousRub> <!-- end SOUS RUBRIQUE --> <!-- SITES -->
+										<INCLURE {fond=inclure/sites, id_rubrique} /> <!-- end SITES -->
+									</div>
+								</div>
+
+							</div>
+							<!-- end Colonne centre -->
+
+							<div class="col-md-3">
+								<!-- start sidebar -->
+								<aside class="mu-sidebar">
+									<INCLURE {fond=inclure/menuHierarchie, id_rubrique} />
+								</aside>
+								<!-- / end sidebar -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<INCLURE {fond=inclure/barrebas} />
+	<INCLURE {fond=inclure/pied} />
+
+	</BOUCLE_principale>

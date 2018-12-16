@@ -1,0 +1,60 @@
+<B_sites>
+  <!-- Start features SITES -->
+  <section id="mu-our-teacher">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+
+          <div class="">
+            <!-- Start Title -->
+            <div class="mu-title">
+              <h3><:sites_web:></h3>
+              <p></p>
+            </div>
+            <!-- End Title -->
+            <!-- Start features content -->
+            <div class="mu-our-teacher-content">
+              <div class="row">
+
+<BOUCLE_sites(SITES) {id_rubrique} {par nom_site}>
+                <div class="col-lg-6 col-md-6  col-sm-6">
+                  <div class="mu-single-gallery-info-inner">
+                    <figure class="mu-our-teacher-img">
+<iframe src="#URL_SITE"  frameborder="0" style="width: 100%;" ></iframe>                      
+                    </figure>
+<div class="mu-single-gallery-info-inner">
+		                          	<h4>#NOM_SITE</h4>
+		                          	 <span><BOUCLE_aut(AUTEURS auteurs_liens){objet="site"}{id_objet=#ID_SYNDIC}>#NOM</BOUCLE_aut></span>
+                      #DESCRIPTIF
+		                          	<a href="#" class="mu-view-btn"><span class="fa fa-search"></span></a>
+		                          	<a href="#URL_SITE" class="aa-link"><span class="fa fa-link"></span></a>
+								  	<!-- Iteam detail view -->
+								  	<div class="portfolio-detail">
+					                    <a href="#" class="modal-close-btn"><span class="fa fa-times"></span></a>
+<iframe src="#URL_SITE"  frameborder="0" style="width: 100%;height: 800px;" ></iframe>                      
+					                    <h2>#NOM_SITE</h2>
+<span><BOUCLE_autDet(AUTEURS auteurs_liens){objet="site"}{id_objet=#ID_SYNDIC}>#NOM</BOUCLE_autDet></span>
+                      #DESCRIPTIF
+
+				                	</div>
+</div>
+
+                    
+                    <div class="mu-ourteacher-single-content">
+                      <h4></h4>
+
+                    </div>
+                  </div>
+                </div>
+</BOUCLE_sites>
+
+              </div>
+            </div>
+            <!-- End features content -->
+          </div>
+        </div>
+     </div>
+  </div>
+</section>
+  <!-- End features SITES -->
+</B_sites>

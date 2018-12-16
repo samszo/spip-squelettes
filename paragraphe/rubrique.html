@@ -1,0 +1,28 @@
+<INCLURE{fond=inclure/tete}>
+
+<BOUCLErub(RUBRIQUES){id_rubrique}>
+
+<section>
+      <header class="main">
+	    <h1>#TITRE</h1>
+            <h2>#DESCRIPTIF</h2>
+
+      </header>  	      
+      
+    <BOUCLEart(ARTICLES){id_rubrique}{par num titre}>      
+	<div class="row">
+	    <h3> #TITRE </h3>
+	    <p>[(#TEXTE|couper{200})]</p>
+	    <p><a href="#URL_ARTICLE">Lire la suite...</a></p>
+	</div>
+    </BOUCLEart>
+
+</BOUCLErub>
+</section>
+
+
+<INCLURE{fond=inclure/side}>
+
+
+
+<INCLURE{fond=inclure/pied}>

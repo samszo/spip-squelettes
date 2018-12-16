@@ -1,0 +1,28 @@
+<BOUCLEaut(AUTEURS){id_auteur}>	
+<p class="arbo"><a href="#URL_SITE_SPIP/"><:accueil_site:></a> &gt; <:info_auteurs:>[ &gt; <strong class="on">(#NOM|couper{80})</strong>]</p>
+<div class="vcard">[(#REM) microformat vcard]</div>
+
+<section>
+	<header class="main">
+        [(#LOGO_AUTEUR|image_reduire{224,*})]
+        <h1 class="#EDIT{qui} fn">#NOM</h1>
+        <h3>#GRADE #SECTION_CNU</h3>
+        <h4>#INSTITUTION</h4>
+        <h5>#ROLE <BOUCLE_motRub(MOTS){id_auteur}{id_groupe=2}>#TITRE</BOUCLE_motRub></h5>
+    </header>
+
+    [<div class="#EDIT{bio} texte note">(#BIO)</div>]
+    [<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="url org spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+    
+
+    [(#REM) Articles de l'auteur ]
+    <BOUCLE_articles(ARTICLES){id_auteur} {!par popularite}>
+    <header class="header">
+            <h2>#TITRE</h2>
+        </header>
+        <div class="row">
+        #TEXTE 
+        </div>
+    </BOUCLE_articles>
+</section>
+</BOUCLEaut>

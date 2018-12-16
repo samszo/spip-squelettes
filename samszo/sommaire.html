@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+[(#REM) Cf.: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+]<!--[if lt IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js"> <!--<![endif]-->
+<head>
+	<script type='text/javascript'>/*<![CDATA[*/(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);/*]]>*/</script>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#SLOGAN_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|attribut_html)" />]
+<INCLURE {fond=inclure/tete} />
+</head>
+
+<body>
+	<INCLURE {fond=inclure/barrehaut} />
+	<INCLURE {fond=inclure/menu,env} />
+	<INCLURE {fond=inclure/recherche} />
+
+  <!-- Start Slider -->
+  <section id="mu-slider">
+   <BOUCLE_artAccueil(ARTICLES){id_rubrique=34}{par date}{inverse}>
+
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+      <div class="mu-slider-img">
+        <figure>
+
+         <BOUCLE_artDocAccueil(DOCUMENTS){id_article}{0,1}>
+          <img src="#FICHIER" alt="#TITRE">
+         </BOUCLE_artDocAccueil>
+
+        </figure>
+      </div>
+      <div class="mu-slider-content">
+        <h4>#SURTITRE</h4>
+        <span></span>
+        <h2>#TITRE</h2>
+        #TEXTE
+        <a href="#URL_SITE " class="mu-read-more-btn">#NOM_SITE</a>
+      </div>
+    </div>
+    <!-- Start single slider item -->
+
+
+    </BOUCLE_artAccueil>     
+  </section>
+  <!-- End Slider -->
+
+
+       <INCLURE {fond=inclure/slideCita} />
+
+
+<!-- Start about us counter -->
+  <section id="mu-abtus-counter">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-abtus-counter-area">
+            <div class="row">
+               <div class="mu-title">
+                 <h2>Recherches</h2>
+               </div>
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-book"></span>
+                  <h4 class="counter">998</h4>
+                  <a href="spip.php?page=biblio"><p>Références Bibliographiques</p></a>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-users"></span>
+                  <h4 class="counter">3500</h4>
+                  <p>Auteurs lus</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-sitemap"></span>
+                  <h4 class="counter">15466</h4>
+                  <a href="www.diigo.com/user/luckysemiosis"  target="_blank"><p>Pages Web référencées</p></a>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single no-border">
+                  <span class="fa fa-tags"></span>
+                  <h4 class="counter">20457</h4>
+                  <a href="www.diigo.com/user/luckysemiosis"  target="_blank"><p>Tags utilisés</p></a>
+                </div>
+              </div>
+              <!-- End counter item -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- compteur ligne de code
+https://api.github.com/repos/samszo/jardindesconnaissances/languages
+ -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-abtus-counter-area">
+            <div class="row">
+               <div class="mu-title">
+                 <h2>Actions</h2>
+               </div>
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-css3"></span>
+                  <h4 class="counter">646245</h4>
+                  <p>Lignes de CSS</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-html5"></span>
+                  <h4 class="counter">714953</h4>
+                  <p>Lignes de HTML</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-cogs"></span>
+                  <h4 class="counter">3444527</h4>
+                 <p>Lignes de JavaScript</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single no-border">
+                  <span class="fa fa-server"></span>
+                  <h4 class="counter">8106911</h4>
+                  <p>Lignes de PHP</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- compteur Diffusion
+ -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-abtus-counter-area">
+            <div class="row">
+               <div class="mu-title">
+                 <h2>Diffusions</h2>
+               </div>
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-comments-o"></span>
+                  <h4 class="counter">54</h4>
+                  <p>Conférences</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-file-text-o"></span>
+                  <h4 class="counter">32</h4>
+                  <p>Publications</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single">
+                  <span class="fa fa-graduation-cap"></span>
+                  <h4 class="counter">1572</h4>
+                 <p>Etudiants</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+              <!-- Start counter item -->
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="mu-abtus-counter-single no-border">
+                  <span class="fa fa-plane"></span>
+                  <h4 class="counter">63486</h4>
+                  <p>KM parcourus</p>
+                </div>
+              </div>
+              <!-- End counter item -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+  <!-- End about us counter -->
+
+
+	<INCLURE {fond=inclure/barrebas} />
+	<INCLURE {fond=inclure/pied} />

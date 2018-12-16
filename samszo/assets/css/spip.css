@@ -1,0 +1,45 @@
+.spip_documents { margin-bottom: 1.5em; padding: 0; background: none; max-width: 100%;}
+.spip_documents,
+.spip_documents_center,
+.spip_doc_titre,
+.spip_doc_descriptif { margin-right: auto; margin-left: auto; text-align: center; }
+.spip_documents_center { clear: both; display: block; width: 100%; }
+.spip_documents_left { float: left; margin-right: 1.5em; }
+.spip_documents_right { float: right; margin-left: 1.5em; }
+.spip_doc_titre {}
+.spip_doc_descriptif { clear: both; }
+.spip_doc_credits { font-size:x-small; clear: both; }
+
+
+
+/* fin */
+
+/* Profondeur des menus*/
+.mnuProf1 {
+   margin-left: 0.5em;
+}
+.mnuArtProf1 {
+   margin-left: 1em;
+   font-style: italic;
+}
+.mnuProf2 {
+   margin-left: 1em;
+}
+.mnuArtProf2 {
+   margin-left: 1.5em;
+   font-style: italic;
+}
+.mnuProf3 {
+   margin-left: 1.5em;
+}
+.mnuArtProf3 {
+   margin-left: 2em;
+   font-style: italic;
+}
+.mnuProf4 {
+   margin-left: 2em;
+}
+.mnuArtProf4 {
+   margin-left: 2.5em;
+   font-style: italic;
+}

@@ -1,0 +1,36 @@
+<INCLURE{fond=inclure/tete}>
+
+<BOUCLErub(RUBRIQUES){id_rubrique}>	
+<p class="arbo"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane(HIERARCHIE){id_rubrique}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane>[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]</p>
+
+<section>
+	<header class="main">
+		<h1>#TITRE</h1>
+		<h2>#DESCRIPTIF</h2>
+	</header>
+
+	<div class="features">
+        <BOUCLE_sousRub(RUBRIQUES){id_parent}{par titre}>
+            <BOUCLEaut(AUTEURS){nom=#TITRE}>	
+            <article>
+                <span class="icon fa-user"></span>
+                <div class="content">
+                    <h3><a href="#URL_AUTEUR">#NOM</a></h3>
+                    <p>#GRADE #SECTION_CNU</p>
+                    <p>#INSTITUTION </p>
+                    <h5>#ROLE</h5>
+                    <h4><BOUCLE_motRub(MOTS){id_auteur}{id_groupe=2}>#TITRE</BOUCLE_motRub></h4>
+                </div>
+            </article>
+            </BOUCLEaut>
+        </BOUCLE_sousRub>
+    </div>	                
+</section>	
+</BOUCLErub>
+
+
+<INCLURE{fond=inclure/side}>
+
+
+
+<INCLURE{fond=inclure/pied}>

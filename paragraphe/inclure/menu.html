@@ -1,0 +1,34 @@
+<!-- Menu -->
+
+
+<BOUCLE_langue(RUBRIQUES){racine}>
+<nav  id="menu">
+<header class="major">
+	<h2><a href="#URL_SITE_SPIP">#TITRE</a></h2>
+</header>
+<ul>
+	
+	 <BOUCLE_Smenu(ARTICLES){id_rubrique}{par num titre}>
+	    <li><a href="#URL_ARTICLE">#TITRE</a></li>
+	  </BOUCLE_Smenu>
+	
+	<BOUCLE_menu(RUBRIQUES){id_parent}{par num titre}>
+	    
+	 <li>
+	       <span class="opener">#TITRE</span>
+	       
+	       <ul>
+		     <BOUCLE_S2menu(RUBRIQUES){id_parent}{par num titre}>
+				<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+		      </BOUCLE_S2menu>
+			<BOUCLE_SmenuArt(ARTICLES){id_rubrique}{par num titre}>
+				<li><a href="#URL_ARTICLE">#TITRE</a></li>
+			</BOUCLE_SmenuArt>
+				  
+	      </ul>
+	 </li>
+	</BOUCLE_menu>
+		
+	</ul>
+</nav>
+</BOUCLE_langue>

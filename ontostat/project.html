@@ -1,0 +1,102 @@
+<BOUCLE_ArtProj(ARTICLES) {id_article}>
+<!doctype html>
+<html lang="#LANG">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="#DESCRIPTION" />
+<BOUCLE_ArtProjAutMeta(AUTEURS) {id_article}>
+<meta name="author" content="#NOM" />
+</BOUCLE_ArtProjAutMeta>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#TITRE</title>
+
+<!-- =========================
+ FAV AND TOUCH ICONS  
+============================== -->
+<link rel="shortcut icon" href="#CHEMIN{images/icons/favicon.ico}">
+<link rel="apple-touch-icon" href="#CHEMIN{images/icons/apple-touch-icon.png}">
+<link rel="apple-touch-icon" sizes="72x72" href="#CHEMIN{images/icons/apple-touch-icon-72x72.png}">
+<link rel="apple-touch-icon" sizes="114x114" href="#CHEMIN{images/icons/apple-touch-icon-114x114.png}">
+
+	<!-- =========================
+	     STYLESHEETS      
+	============================== -->
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.theme.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.carousel.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/jquery.vegas.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/animate.min.css}">
+	
+	<link rel="stylesheet" href="#CHEMIN{assets/icon-fonts/styles.css}"> 
+	<link rel="stylesheet" href="#CHEMIN{css/pixeden-icons.css}"> 
+	
+	<!-- CUSTOM STYLES -->
+	<link rel="stylesheet" href="#CHEMIN{css/styles.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/responsive.css}">
+	
+	<!-- WEBFONT -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+	
+	<!--[if lt IE 9]>
+				<script src="#CHEMIN{js/html5shiv.js}"></script>
+				<script src="#CHEMIN{js/respond.min.js}"></script>
+			<![endif]-->
+	<!-- JQUERY -->
+	<INCLURE{fond=inclure/head} />
+	
+</head>
+<body>
+<div class="container">
+	
+	<!-- HOMEPAGE PORTFOLIO SECTION WILL LOAD CONTENTS FROM HERE -->
+	<div class="single-project">
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				[(#LOGO_ARTICLE|image_reduire{300,300}|inserer_attribut{alt,#TITRE})]
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<h3 class="dark-text">#TITRE</h3>
+				<h4>#DESCRIPTIF</h4>
+				<div class="project-information">
+					<ul>
+						<!-- <li><span class="dark-text">Date: </span>#DATE</li>  -->
+						<BOUCLE_ArtProjAut(AUTEURS) {id_article}>
+						<li><span class="dark-text">#ROLE : </span> #NOM</li>
+						</BOUCLE_ArtProjAut>
+					</ul>
+				</div>
+				<div class="project-information">
+					<ul>
+						<li><span class="dark-text">#NOM_SITE : </span> <a href="#URL_SITE" target="_blank">#URL_SITE</a></li>
+					</ul>					
+				</div>
+				<div class="project-information">
+					#CHAPO
+				</div>
+				<div class="project-information">
+					<B_documents_portfolio>
+					<div class="bloc clearfix documents_portfolio" id="documents_portfolio">
+						<ul>
+							<BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {mode=document}{extension IN png,jpg,gif} {par num titre, date}{doublons}{vu=non}>[
+							<li><a href="(#URL_DOCUMENT)" type="#MIME_TYPE" onclick="" [ class="(#EXPOSER)"][ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER
+								|image_passe_partout{90,90}
+								|image_recadre{90,90}
+								|inserer_attribut{class,spip_logo}
+								|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a></li>
+							]</BOUCLE_documents_portfolio>
+						</ul>
+					</div><!--#documents_portfolio-->
+					</B_documents_portfolio>    
+				</div>				
+				<div class="project-description">
+					#TEXTE	 
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END OF SINGLE PROJECT -->
+	
+</div>
+</body>
+</html>
+</BOUCLE_ArtProj>

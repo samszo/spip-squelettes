@@ -1,0 +1,598 @@
+<!doctype html>
+<html dir="#LANG_DIR" lang="#LANG" xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js">
+<head>
+  	<meta charset="utf-8">  	
+    <meta name="keywords" content="ontologie, statistique, Université Paris 8, CreaTIC, Ressource Pédagogique Numérique">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Samuel Szoniecky">
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#SLOGAN_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- =========================
+	 FAV AND TOUCH ICONS  
+	============================== -->
+	<link rel="shortcut icon" href="#CHEMIN{images/icons/favicon.ico}">
+	<link rel="apple-touch-icon" href="#CHEMIN{images/icons/apple-touch-icon.png}">
+	<link rel="apple-touch-icon" sizes="72x72" href="#CHEMIN{images/icons/apple-touch-icon-72x72.png}">
+	<link rel="apple-touch-icon" sizes="114x114" href="#CHEMIN{images/icons/apple-touch-icon-114x114.png}">
+	
+	<!-- =========================
+	     STYLESHEETS      
+	============================== -->
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.theme.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/owl.carousel.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/jquery.vegas.min.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/animate.min.css}">
+	
+	<!-- ICONES -->
+	<link rel="stylesheet" href='#CHEMIN{css/font-awesome.min.css}' >
+	<link rel="stylesheet" href="#CHEMIN{assets/icon-fonts/styles.css}"> 
+	<link rel="stylesheet" href="#CHEMIN{css/pixeden-icons.css}"> 
+	
+	<!-- CUSTOM STYLES -->
+	<link rel="stylesheet" href="#CHEMIN{css/styles.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/responsive.css}">
+	
+	<!-- WEBFONT -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple' rel='stylesheet' type='text/css'>
+	
+	
+	
+	<!--[if lt IE 9]>
+				<script src="#CHEMIN{js/html5shiv.js}"></script>
+				<script src="#CHEMIN{js/respond.min.js}"></script>
+			<![endif]-->
+	
+	<!-- JQUERY -->
+	<script src="#CHEMIN{js/jquery.min.js}"></script>
+	
+	<INCLURE{fond=inclure/head} />
+	
+</head>
+
+
+<body>	
+<BOUCLE_section(RUBRIQUES) {racine}{lang=#LANG}>
+
+<!-- =========================
+   PRE LOADER       
+============================== -->
+<div class="preloader">
+  <div class="status">&nbsp;</div>
+</div>
+<!-- =========================
+   HOME SECTION       
+============================== -->
+<header id="home" class="header">
+	
+	<!-- TOP BAR -->
+	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
+		<div class="container">
+			<div class="navbar-header responsive-logo">
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="navbar-brand">
+					#LOGO_SITE_SPIP
+				</div>
+			</div>
+		        [(#SESSION{id_auteur}|non) | <a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow" class='login_modal'><:lien_connecter:></a>]
+		        [(#AUTORISER{ecrire})| <a href="#EVAL{_DIR_RESTREINT_ABS}"><:espace_prive:></a>]
+				[(#SESSION{id_auteur}|oui) | <a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a>]
+			<nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
+			<ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+			<!-- création du menu suivant le numéro de rubrique ou le mots clef class -->
+				<li><a href="#home">Accueil</a></li>
+				<BOUCLE_menuSousRub(RUBRIQUES) {id_parent}{par num titre}>
+					<li><B_menuSousRubMC><BOUCLE_menuSousRubMC(MOTS) {id_rubrique}{id_groupe=2}><a href="##TITRE"></BOUCLE_menuSousRubMC>
+			     		</B_menuSousRubMC><a href="#rubrique#ID_RUBRIQUE"><//B_menuSousRubMC>[(#TITRE|supprimer_numero)]</a></li>
+		        </BOUCLE_menuSousRub>          
+			</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- / END TOP BAR -->
+	
+	<!-- BIG HEADING WITH CALL TO ACTION BUTTONS AND SHORT MESSAGES -->
+	<div class="container">
+		
+		<!-- HEADING -->
+		<h1 class="intro">[(#NOM_SITE_SPIP|textebrut)]</h1>
+		<h2 class="slogan">[(#SLOGAN_SITE_SPIP|textebrut)]</h2>
+		
+		<!-- CALL TO ACTION BUTTONS -->
+		<div class="buttons inpage-scroll">
+			<BOUCLE_menuBtn(RUBRIQUES) {id_parent}{par num titre}>
+				<BOUCLE_menuBtnMC(MOTS) {id_rubrique}{id_groupe=2}>
+					<a href="##TITRE"</BOUCLE_menuBtnMC>class="btn btn-primary custom-button red-btn">
+		     		[(#TITRE|supprimer_numero)]</a>
+	        </BOUCLE_menuBtn>          
+		</div>
+		#FORMULAIRE_INSCRIPTION
+		
+	</div> <!-- / END BIG HEADING WITH CALL TO ACTION BUTTONS AND SHORT MESSAGES  -->
+	
+</header> <!-- / END HOME SECTION  -->
+
+<!-- =========================
+   FOCUS SECTION      
+============================== -->
+
+<BOUCLE_tradRub1(RUBRIQUES) {id_parent}{par num titre}{0, 1}>
+<section class="focus" id="focus">
+<div class="container">
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+		
+		<!-- SECTION TITLE -->
+		<h2 class="creatic-text">#TITRE</h2>
+		
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h3>
+			#TEXTE
+		</h3>
+	</div>
+	<!-- / END SECTION HEADER -->
+	
+	<!-- 4 FOCUS BOXES -->
+	<div class="row">
+		
+		<!-- FIRST FOCUS BOXES -->
+		<BOUCLE_tradArt1(ARTICLES) {id_rubrique}{par num titre}>        
+		
+		<div class="col-lg-4 col-sm-4 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<div class="service-icon">
+				<BOUCLE_tradArt1MC(MOTS) {id_article}{id_groupe=1}><i class="pixeden pd-icon-#TITRE"></i></BOUCLE_tradArt1MC>
+				 <!-- FOCUS ICON-->
+			</div>
+			<h5 class="red-border-bottom">#TITRE</h5> <!-- FOCUS HEADING -->
+			<div class="txtJusti"> <!-- FOCUS DESCRIPTION -->
+				 #TEXTE
+			</div>
+		</div>
+		</BOUCLE_tradArt1>
+		<!-- / END FIRST FOCUS BOX. Other boxes has same format -->
+	</div>
+	<!-- / END 4 FOCUS BOXES -->
+</div> <!-- / END CONTAINER -->
+</section>  <!-- / END FOCUS SECTION -->
+</BOUCLE_tradRub1>    
+
+<!-- =========================
+   SEPARATOR ONE      
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+</div>
+</section>  <!-- / END SEPARATOR -->
+
+
+<!-- =========================
+   OUR TEAM SECTION   
+============================== -->
+
+<BOUCLE_tradRub2(RUBRIQUES) {id_parent}{par num titre}{1, 1}>
+<section class="our-team" id="team">
+<div class="container">
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+		
+		
+		<h2 class="creatic-text">#TITRE</h2>
+		
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h3>
+			#TEXTE
+		</h3>		
+		
+	</div>
+	<!-- / END SECTION HEADER -->
+	
+	<!-- TEAM MEMBERS -->
+	<div class="row wow fadeInRight animated" data-wow-offset="40" data-wow-duration="3s" data-wow-delay="0.15s">
+	<BOUCLE_tradArt2(ARTICLES) {id_rubrique}{par num titre}{0, 1}>
+		<!-- MEMBER -->
+		<BOUCLE_tradAut2(AUTEURS){id_article}{par num nom}{par nom}>
+		<div class="col-lg-4 col-sm-4">
+			<div class="team-member">
+				<figure class="profile-pic"> 
+				#LOGO_AUTEUR <!-- MEMBER PROFILE PIC -->
+				</figure>
+				<div class="member-details">
+					<h5 class="dark-text red-border-bottom">#NOM</h5>
+					<div class="position">
+						<BOUCLES_roles2(spip_auteurs_liens){id_article}{id_auteur}{', '}>
+						[(#ROLE|role{auteur})]
+						</BOUCLES_roles2>
+					</div>
+				</div>				
+				<div class="social-icons">					
+					<ul>
+						<BOUCLE_site(AUTEURS){id_auteur}{si #INPUT_3}>
+						<li><a href="#INPUT_3"><i class="fa fa-globe"></i></a></li>
+						</BOUCLE_site>						
+						<BOUCLE_hal(AUTEURS){id_auteur}{si #INPUT_1}>
+						<li><a href="#INPUT_1"><i class="fa fa-universal-access"></i></a></li>
+						</BOUCLE_hal>
+						<BOUCLE_diigo(AUTEURS){id_auteur}{si #INPUT_2}>
+						<li><a href="#INPUT_2"><i class="icon-diigo"></i></a></li>
+						</BOUCLE_diigo>						
+						<BOUCLE_github(AUTEURS){id_auteur}{si #INPUT_4}>
+						<li><a href="#INPUT_4"><i class="fa fa-github"></i></a></li>
+						</BOUCLE_github>
+						<BOUCLE_tweeter(AUTEURS){id_auteur}{si #INPUT_5}>
+						<li><a href="#INPUT_5"><i class="icon-twitter-alt"></i></a></li>
+						</BOUCLE_tweeter>
+						<BOUCLE_zotero(AUTEURS){id_auteur}{si #INPUT_6}>
+						<li><a href="#INPUT_6"><i class="fa fa-book"></i></a></li>
+						</BOUCLE_zotero>						
+					</ul>
+				</div>
+				<div class="details">
+					<p>
+						#BIO
+					</p>
+					<p>
+						Groupes de travail :
+						<BOUCLE_groupeTravail(MOTS){id_groupe=4}{id_auteur}{', '}>
+						#TITRE
+						</BOUCLE_groupeTravail>
+					</p>					
+				</div>
+			</div>
+		</div>
+		<!-- / END MEMBER -->
+		</BOUCLE_tradAut2>
+	</BOUCLE_tradArt2>
+	</div> <!-- / END TEAM MEMBER LIST -->
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END OUR TEAM SECTION -->
+</BOUCLE_tradRub2>
+
+<!-- =========================
+   SEPARATOR ONE      
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+</div>
+</section>  <!-- / END SEPARATOR -->
+
+<!-- =========================
+   NEWSETTER          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	<!-- NEWSLETTER SECTION HEADING 
+	<h3 class="white-text wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">Restez informés</h3>
+	<div class="sub-heading white-text wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+		Enregistrez-vous pour recevoir les dernières nouvelles du projet.
+	</div> 
+	
+	 SUBSCRIPTION FORM 
+	#FORMULAIRE_INSCRIPTION
+	 / END SUBSCRIPTION FORM -->
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+
+<!-- =========================
+   Littérarture ressource   
+============================== -->
+
+<BOUCLE_tradRubLit(RUBRIQUES) {id_parent}{par num titre}{3, 1}>
+<section class="focus" id="Litte">
+<div class="container">
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+		
+		<!-- SECTION TITLE -->
+		<h2 class="creatic-text">#TITRE</h2>
+		
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h3>
+			#TEXTE
+		</h3>
+	</div>
+	<!-- / END SECTION HEADER -->
+	
+	<!-- 4 FOCUS BOXES -->
+	<div class="row">
+		
+		<!-- FIRST FOCUS BOXES -->
+		<BOUCLE_tradArtLit(ARTICLES) {id_rubrique}{par num titre}>        
+		
+		<div class="col-lg-3 col-sm-3 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<div class="service-icon" >
+				[(#LOGO_ARTICLE||image_reduire{100}||inserer_attribut{style,'margin-top: 20px;'})]
+			</div>
+			<h5 class="red-border-bottom">#TITRE</h5> <!-- FOCUS HEADING -->
+			<div class="txtJusti"> <!-- FOCUS DESCRIPTION -->
+				 #TEXTE
+			</div>
+		</div>
+		</BOUCLE_tradArtLit>
+		<!-- / END FIRST FOCUS BOX. Other boxes has same format -->
+	</div>
+	<!-- / END 4 FOCUS BOXES -->
+</div> <!-- / END CONTAINER -->
+</section>  <!-- / END FOCUS SECTION -->
+</BOUCLE_tradRubLit>   
+
+
+<section class="newsletter">
+<div class="container">
+</div>
+</section>  <!-- / END SEPARATOR -->
+
+<!-- =========================
+   PRODUCTS SECTION   
+============================== -->
+
+<BOUCLE_tradRub4(RUBRIQUES) {id_parent}{par num titre}{4, 1}>
+<section class="products" data-type="background" data-speed="1" id="products">
+<div class="color-overlay">
+	<div class="container">
+			
+    <!-- SECTION HEADER -->
+        <div class="section-header">
+		
+		
+			<h2 class="creatic-text">#TITRE</h2>
+			
+			<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+			<h3>
+				#TEXTE
+			</h3>		
+		</div>
+	<!-- / END SECTION HEADER -->
+	
+		<div class="row projects">
+			<div id="production-loader">
+			    <div class="loader-icon"></div>
+			</div>
+			<div class="col-md-12" id="production-list">
+			
+			<!-- PRODUCTS -->
+			<div class="row wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				<BOUCLE_tradArt4(ARTICLES) {id_rubrique}{par num titre}>
+	            <!-- PRODUCT #ID_ARTICLE -->            
+	                <div class="col-md-3">
+					<div class="item item-1">
+						<div class="item-overlay">
+							#LOGO_ARTICLE
+						</div>
+						<div class="item-content">
+							<div class="item-top-content">
+								<div class="item-top-content-inner">
+									<div class="item-product">
+										<div class="item-top-title">
+											<h5>#TITRE</h5>  <!-- PRODUCT TITLE-->
+											<p class="subdescription">
+												<BOUCLE_tradMC4(MOTS){id_groupe=3}{id_article}>
+												#SET{typeProd,#TITRE}
+												#TITRE
+												</BOUCLE_tradMC4>												
+											</p> <!-- PRODUCT DESCRIPTION-->
+										</div>
+										
+									</div>
+									<div class="item-product-price">
+										<!-- PRICE -->
+										<span class="price-num red-text">[(#DATE|nom_mois)]</span> 
+										<!-- OLD PRICE START -->
+										<p class="subdescription">
+											 [(#DATE|annee)]
+										</p>
+									</div>
+								</div>
+							</div>
+							
+							<!-- ITEM HOVER CONTENT-->
+							<div class="item-add-content">
+								<div class="item-add-content-inner">
+									<div class="section">
+										<p>
+											#DESCRIPTIF
+										</p>
+									</div>
+									<div class="section">
+										<a href="spip.php?page=project&id_article=#ID_ARTICLE&var_mode=recalcul" class="detail btn-primary custom-button red-btn">Détail</a><br/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- / END PRODUCT #ID_ARTICLE -->
+				</BOUCLE_tradArt4>
+				
+	
+				
+			</div> <!-- / END PRODUCTS LIST -->
+			
+			</div>
+			<!-- END OF PORTFOLIO ITEMS-->
+		</div>
+	<!-- PROJECT DETAILS WILL BE LOADED HERE -->
+	<div id="production-loaded-content"></div>
+
+    <a id="production-back-button" class="red-btn" href="#"><i class="icon-fontawesome-webfont-27"></i> Retour</a>
+		
+	</div> <!-- / END CONTAINER -->
+</div> <!-- / END COLOR OVERLAY -->
+</section> <!-- / END PRODUCTS SECTION -->
+</BOUCLE_tradRub4>
+
+<section class="newsletter">
+<div class="container">
+</div>
+</section>  <!-- / END SEPARATOR -->
+
+<!-- =========================
+   LES PARTENAIRES   
+============================== -->
+<BOUCLE_tradRub3(RUBRIQUES) {id_parent}{par num titre}{2, 1}>
+<section class="works" id="partenaires">
+<div class="container">
+	
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+		
+		
+		<h2 class="creatic-text">#TITRE</h2>
+		
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h3>
+			#TEXTE
+		</h3>		
+		
+	</div>
+	<!-- / END SECTION HEADER -->
+	<div class="row projects">
+	<div id="portfolio-loader">
+	    <div class="loader-icon"></div>
+	</div>
+	<div class="col-md-12" id="portfolio-list">
+		<!-- PORTFOLIO ITEMS-->
+		<ul class="cbp-rfgrid">
+		
+		<BOUCLE_tradArt3(ARTICLES) {id_rubrique}{par num titre}>
+        <!-- PROJECT -->	
+        <li class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+        		<a href="spip.php?page=project&id_article=#ID_ARTICLE&var_mode=recalcul" class="more"><img class="imgCentre" src="IMG/[(#LOGO_ARTICLE|fichier|image_reduire{400,300})]" alt="#TITRE" />
+				<div class="project-info">
+					<div class="project-details">
+						<h5 class="white-text red-border-bottom">
+						#TITRE </h5>
+						<div class="details white-text">#DESCRIPTIF</div>
+						<BOUCLE_Art3Aut(AUTEURS) {id_article}>
+						<div class="details white-text">#NOM</div>
+						</BOUCLE_Art3Aut>
+					</div>
+				</div>
+			</a>
+        </li>
+        <!-- / PROJECT -->
+        </BOUCLE_tradArt3>
+
+        <!-- ... -->
+		</ul>
+	</div>
+	<!-- END OF PORTFOLIO ITEMS-->
+</div>
+	
+	<!-- PROJECT DETAILS WILL BE LOADED HERE -->
+	<div id="portfolio-loaded-content"></div>
+
+    <a id="portfolio-back-button" class="red-btn" href="#"><i class="icon-fontawesome-webfont-27"></i> Retour</a>
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END WORKS SECTION -->
+</BOUCLE_tradRub3>
+
+<!-- =========================
+   SECTION TRANSPARENTE          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+
+<!-- =========================
+   SECTION TRANSPARENTE          
+============================== -->
+
+<section class="newsletter">
+<div class="container">
+	
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+
+<!-- =========================
+   FOOTER             
+============================== -->
+
+<footer>
+<div class="container">
+	
+	<!-- COMPANY ADDRESS-->
+	<div class="col-md-5 company-details">
+		<div class="icon-top red-text">
+		    <i class="icon-fontawesome-webfont-302"></i>
+		</div>
+		IDEFI-CréaTIC, Université Paris 8 <br/>
+		2 rue de la Liberté 93526 Saint-Denis France
+	</div>
+	
+	<!-- COMPANY EMAIL-->
+	<div class="col-md-2 company-details">
+		<div class="icon-top green-text">
+		<i class="icon-fontawesome-webfont-329"></i>
+		</div>
+		 contact@idefi-creatic.net
+	</div>
+	
+	<!-- COMPANY PHONE NUMBER -->
+	<div class="col-md-2 company-details">
+		<div class="icon-top blue-text">
+		<i class="icon-fontawesome-webfont-101"></i>
+		</div>
+		+033 01 49 40 67 98
+	</div>
+	
+	<!-- COPYRIGHT -->
+	<div class="col-md-2 company-details">
+		<div class="icon-top white-text">
+		<i class="icon-creative-commons"></i>
+		</div>
+		 2016 SamSzo<br/>
+		 ©2013 Zerif LLC
+	</div>
+</div> <!-- / END CONTAINER -->
+</footer> <!-- / END FOOOTER  -->
+
+<!-- SCRIPTS -->
+<script src="#CHEMIN{js/bootstrap.min.js}"></script>
+<script src="#CHEMIN{js/wow.min.js}"></script>
+<script src="#CHEMIN{js/jquery.nav.js}"></script>
+<script src="#CHEMIN{js/jquery.knob.js}"></script>
+<script src="#CHEMIN{js/owl.carousel.min.js}"></script>
+<script src="#CHEMIN{js/smoothscroll.js}"></script>
+<script src="#CHEMIN{js/jquery.vegas.min.js}"></script>
+<script src="#CHEMIN{js/zerif.js}"></script>
+<script type="text/javascript">
+/* ================================
+===  BACKGROUND SLIDER        ====
+================================= */
+$.vegas('slideshow', {
+  delay:7000,
+  backgrounds:[
+    { src:'#CHEMIN{images/backgrounds/bg1.jpg}', fade:1000 },
+    { src:'#CHEMIN{images/backgrounds/bg2.jpg}', fade:1000 },
+    { src:'#CHEMIN{images/backgrounds/bg3.jpg}', fade:1000 },
+    { src:'#CHEMIN{images/backgrounds/bg4.jpg}', fade:1000 },
+    { src:'#CHEMIN{images/backgrounds/bg5.jpg}', fade:1000 },
+    { src:'#CHEMIN{images/backgrounds/bg6.jpg}', fade:1000 },
+  ]
+});
+</script>
+
+</BOUCLE_section>          
+</body>
+</html>

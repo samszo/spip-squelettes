@@ -1,0 +1,21 @@
+<BOUCLE_zitem(ZITEMS){id_parent!=0}{type_ref='note'}{0, 20}{par hasard}>
+              <!-- start testimonial single item -->
+              <div class="mu-testimonial-item">
+                <div class="mu-testimonial-quote">
+<blockquote>
+[<p>(#RESUME|filtrer_entites|supprimer_tags)</p>]
+</blockquote>
+                </div>
+                <div class="mu-testimonial-img">
+                  <img src="../../ChaoticumPapillonae/CreaPapiDynaAnim.php?anim=0&larg=150&haut=150&id=svgPapiLogo#ID_ZITEM"  alt="img">
+                </div>
+                <div class="mu-testimonial-info">
+
+<BOUCLE_zitemBook(ZITEMS){id_zitem=#ID_PARENT}>
+		[<h4>(#AUTEURS)</h4>]
+                  <span>#REFERENCE{#ENV{csl},#ENV{souligne}}</span>
+</BOUCLE_zitemBook>
+                </div>
+              </div>
+              <!-- end testimonial single item -->
+</BOUCLE_zitem>
