@@ -3587,6 +3587,9 @@
 		-webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 		-ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
 		transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+
+		/* *********************************** */
+		/*background-color: #f5f6f7;*/
 		background-color: #f5f6f7;
 		font-size: 0.9em;
 		position: relative;
@@ -3604,7 +3607,7 @@
 		}
 
 			#sidebar > .inner > * {
-				border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+				border-bottom: solid 2px #666;
 				margin: 0 0 3.5em 0;
 				padding: 0 0 3.5em 0;
 			}
