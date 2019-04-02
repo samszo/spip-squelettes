@@ -1,0 +1,220 @@
+@media only screen and (min-width:415px) {
+    html {
+      box-sizing: border-box;
+    }
+    body {
+      margin:0;
+    }
+
+    /* Begin: TOP ******************************************************** */
+
+    #top {
+      width: 100%;
+      background-color:#000;
+    }
+    #top-info {
+      width:600px;
+      margin-left: auto; margin-right: auto;
+      padding:1em 2em 2em 0.5em;
+    }
+    #logo {
+      padding: 1em;
+    }
+    #logo img {
+      height: 60px; float: left; border: 1px solid #fff;
+    }
+    #title {
+      font-family: 'Roboto', sans-serif; color: #eee;
+      text-align: right; line-height:1.4em; font-size: 90%;
+    }
+
+    .burger {
+      display: none;
+    }
+
+
+    /* End: TOP ******************************************************** */
+
+
+    /* Begin: PAGE ******************************************************** */
+
+    #page {
+      width:600px;
+      margin-left: auto; margin-right: auto;
+      margin-bottom: 3em;
+      clear:both;
+      font-size: 80%;
+    }
+
+    a {
+      color: #CF0000; text-decoration: none;
+      border-bottom: 1px dotted #CF0000;
+    }
+
+      /* Navbar container */
+     .navbar {
+       overflow: hidden;
+       background-color: #222;
+       font-family: 'Roboto Condensed', sans-serif;
+       border-top: 2px solid #CF0000;
+       margin-bottom: 1em;
+     }
+
+     /* Links inside the navbar */
+     .navbar a {
+       float: left;
+       font-size: 12px;
+       color: white;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+     }
+
+     /* The dropdown container */
+     .dropdown {
+       float: left;
+       overflow: hidden;
+     }
+
+     /* Dropdown button */
+     .dropdown .dropbtn {
+       font-size: 12px;
+       border: none;
+       outline: none;
+       color: white;
+       padding: 14px 16px;
+       background-color: inherit;
+       font-family: inherit; /* Important for vertical align on mobile phones */
+       margin: 0; /* Important for vertical align on mobile phones */
+     }
+
+     /* Add a red background color to navbar links on hover */
+     .navbar a:hover, .dropdown:hover .dropbtn {
+       background-color: #CF0000;
+     }
+
+     /* Dropdown content (hidden by default) */
+     .dropdown-content {
+       display: none;
+       position: absolute;
+       background-color: #f9f9f9;
+       min-width: 160px;
+       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+       z-index: 1;
+     }
+
+     /* Links inside the dropdown */
+     .dropdown-content a {
+       float: none;
+       color: black;
+       padding: 12px 16px;
+       text-decoration: none;
+       display: block;
+       text-align: left;
+     }
+
+     /* Add a grey background color to dropdown links on hover */
+     .dropdown-content a:hover {
+       background-color: #ddd;
+     }
+
+     /* Show the dropdown menu on hover */
+     .dropdown:hover .dropdown-content {
+       display: block;
+     }
+
+    .contenu_page{
+
+    }
+
+    .section {
+      width:600px;
+      margin-top:0em;
+      font-family: 'Roboto Slab', serif;
+      text-align: justify;
+      line-height:1.7em;
+      font-size:90%;
+    }
+
+    .photo_accueil {
+      width:450px;
+      float: left;
+    }
+
+    .photo_accueil img {
+      width:430px;
+    }
+
+    .logo_fac {
+      width:150px;
+      float: left;
+    }
+
+    .logo_fac img {
+      width:100px;
+    }
+
+    .texte {
+      clear: both;
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    .texte ul {
+      margin: 0; padding: 0;
+      list-style-position: inside;
+      text-align: left;
+    }
+
+    .news {
+      float:left;
+      width:290px;
+      font-family: 'Roboto Slab', serif;
+      border-top: 1px dashed gray;
+      text-align: left;
+    }
+
+    .dernieres_publications {
+      float:left;
+      width:290px;
+      font-family: 'Roboto Slab', serif;
+      margin-left: 20px;
+      border-top: 1px dashed gray;
+      text-align: left;
+    }
+
+    .actu {
+      margin-bottom: 2em;
+    }
+
+    .der_pub {
+      margin-bottom: 2em;
+    }
+
+    .actu_title, .dp_title {
+      color:darkred;
+    }
+
+
+
+    /* End: PAGE ******************************************************** */
+
+
+    /* Begin: BOTTOM ******************************************************** */
+
+    #bottom {
+      clear: both;
+      width:600px; margin-left: auto; margin-right: auto;
+      border-top: 2px solid #333;
+    }
+
+    #bottom-info {
+      font-family: 'Roboto Condensed', sans-serif; font-size: 70%; color: #777; line-height:1.6em;
+    }
+
+    .bottom-col {
+      width:100px; float:left; margin: 1em 1em 5em 5em;
+    }
+
+    /* End: BOTTOM ******************************************************** */
+}
