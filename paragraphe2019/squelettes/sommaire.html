@@ -1,0 +1,41 @@
+<INCLURE{fond=inclure/tete}> <INCLURE{fond=inclure/header}> <!-- Contenu principal de la page -->
+    <div id="page">
+        <INCLURE{fond=inclure/navbar}> <!-- Section No. 01. Partie à gacuhe -->
+
+            <div class="section">
+
+                <div class="contenu_page">
+                    <BOUCLE_art1(ARTICLES){id_article=1}>
+                        <div class="photo_accueil">
+
+                            <!----img src="#CHEMIN{banner-v07.jpg}" alt="35 ans de Paragraphe"-->
+                            [(#LOGO_ARTICLE|image_reduire{500})]
+
+
+                        </div>
+                        <BOUCLE_e(DOCUMENTS){mode=image}{id_article=1}{doublons}>
+                            <div class="logo_fac">
+
+                                [(#FICHIER|image_reduire{150})]
+
+                            </div>
+                            </BOUCLE_e>
+                            <!-- <div class="logo_fac">
+                     <img src="#CHEMIN{UCP.jpg}" alt=""> -->
+                            <!-- <BOUCLEe(DOCUMENTS){mode=image}{id_article=1}{doublons}>
+                            [(#FICHIER|image_reduire{150})]
+                    </BOUCLEe>
+                </div-->
+
+                            <div class="texte">
+                                #TEXTE
+                            </div>
+                            </BOUCLE_art1>
+                </div>
+ <INCLURE{fond=inclure/actualites}>
+
+            </div>
+
+    </div>
+
+    <INCLURE{fond=inclure/footer}> <INCLURE{fond=inclure/pied}>

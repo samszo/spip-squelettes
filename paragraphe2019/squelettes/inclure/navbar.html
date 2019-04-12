@@ -1,0 +1,44 @@
+<!-- Menu -->
+<div class="navbar">
+    <a href="#CHEMIN{sommaire.html}"><i class="fa fa-home"></i></a>
+
+
+    <BOUCLE_rubriques(RUBRIQUES){id_rubrique IN 1}>
+        <BOUCLE_sous_rubrique(RUBRIQUES){id_parent}{par num titre} {id_rubrique!=4 }>
+            <a href="#URL_RUBRIQUE">
+                #TITRE
+            </a>
+            </BOUCLE_sous_rubrique>
+
+            <BOUCLE_sous_rubrique1(RUBRIQUES) {id_rubrique=4 }>
+                <div class="dropdown"> <button class="dropbtn"> #TITRE <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <BOUCLE_sous_rubrique2(RUBRIQUES){id_parent}{par num titre}>
+                            <a href="#URL_RUBRIQUE">
+                                #TITRE
+                            </a>
+                            </BOUCLE_sous_rubrique2>
+                    </div>
+                </div>
+
+                </BOUCLE_sous_rubrique1>
+                </BOUCLE_rubriques>
+
+                <!--div class="dropdown">
+                <button class="dropbtn">Équipes
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">C3U</a>
+                    <a href="#">CITU</a>
+                    <a href="#">CRAC</a>
+                    <a href="#">EHN</a>
+                    <a href="#">INDEX</a>
+                </div>
+            </div>
+            <a href="#CHEMIN{paragraphe-v03 -membres.html}">Membres</a>
+            <a href="#">Projets</a>
+            <a href="#">Publications</a>
+            <a href="#CHEMIN{paragraphe-v03 -actualites.html}">Actualités</a>-->
+</div>

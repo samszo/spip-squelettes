@@ -1,0 +1,25 @@
+<INCLURE{fond=inclure/tete}> <INCLURE{fond=inclure/header}> 
+    <!-- Contenu principal de la page -->
+    <div id="page">
+       <INCLURE{fond=inclure/navbar}>
+        <!-- Section No. 01. Partie à gacuhe -->
+
+        <div class="section">
+
+            <div class="contenu_page">
+
+               <BOUCLE_rub(ARTICLES){id_rubrique}>
+                <BOUCLE_art(ARTICLES){id_article}>
+
+                         <h1> #TITRE</h1>
+                          #TEXTE
+                          #URL_ARTICLE
+
+                 </BOUCLE_art>
+                 </BOUCLE_rub>
+
+          </div>
+
+    </div>
+
+    <INCLURE{fond=inclure/footer}> <INCLURE{fond=inclure/pied}> 
